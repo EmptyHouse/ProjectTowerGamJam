@@ -41,17 +41,22 @@ public class EHGameBoard : EHActor
         }
     }
 
+    protected void Start()
+    {
+        EHGameInstance.Instance.GameState.SetGameBoard(this);
+    }
+
     #endregion monobehaviour methods
 
-    public Vector3 BoardTileToWorldPosition(Vector2Int TilePosition)
+    public static Vector3 BoardTileToWorldPosition(Vector2Int TilePosition)
     {
         return new Vector3(TilePosition.x * BoardTileToWorldAdjustment, 0, TilePosition.y * BoardTileToWorldAdjustment);
     }
 
-    public Vector2Int WorldToBoardTilePosition(Vector3 WorldPosition)
+    public static Vector2Int WorldToBoardTilePosition(Vector3 WorldPosition)
     {
-        return new Vector2Int(Mathf.FloorToInt(WorldPosition.x / BoardTileToWorldAdjustment),
-            Mathf.FloorToInt(WorldPosition.z / BoardTileToWorldAdjustment));
+        return new Vector2Int(Mathf.FloorToInt(WorldPosition.z / BoardTileToWorldAdjustment),
+            Mathf.FloorToInt(WorldPosition.x / BoardTileToWorldAdjustment));
     }
 
     public bool GetTileAtPosition(Vector2Int BoardTilePosition, out EHBoardTileData BoardTileData)

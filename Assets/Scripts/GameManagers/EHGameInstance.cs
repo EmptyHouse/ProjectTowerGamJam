@@ -7,6 +7,8 @@ public struct FWorldSettings
     public EHPlayerController PlayerController;
     public EHPlayerState PlayerState;
     public EHPlayerCharacter PlayerCharacter;
+
+    public EHGameState GameState;
 }
 
 public class EHGameInstance : MonoBehaviour
@@ -30,9 +32,11 @@ public class EHGameInstance : MonoBehaviour
     
     #region player variables
 
-    public EHPlayerState PlayerState;
-    public EHPlayerController PlayerController;
-    public EHPlayerCharacter PlayerCharacter;
+    public EHPlayerState PlayerState { get; private set; }
+    public EHPlayerController PlayerController { get; private set; }
+    public EHPlayerCharacter PlayerCharacter { get; private set; }
+    
+    public EHGameState GameState { get; private set; }
     #endregion player variables
 
 
@@ -56,6 +60,7 @@ public class EHGameInstance : MonoBehaviour
         PlayerState = WorldSetting.PlayerState;
         PlayerController = WorldSetting.PlayerController;
         PlayerCharacter = WorldSetting.PlayerCharacter;
-        
+
+        GameState = WorldSettings.GameState;
     }
 }
