@@ -48,11 +48,11 @@ public class EHPlayerController : EHActor
     protected override void Awake()
     {
         base.Awake();
+        GameCamera = Camera.main.GetComponentInParent<EHGameCamera>();
     }
 
     protected void Start()
     {
-        GameCamera = Camera.main.GetComponentInParent<EHGameCamera>();
     }
 
     private void Update()
@@ -150,12 +150,6 @@ public class EHPlayerController : EHActor
         return new Vector2(DirectionFromPlayer.x, DirectionFromPlayer.z);
     }
 
-
-    private void UpdateMovementDirection(Vector2 MovementInput)
-    {
-        
-    }
-    
     public void UpdateLookDirection(Vector2 LookDirection)
     {
         

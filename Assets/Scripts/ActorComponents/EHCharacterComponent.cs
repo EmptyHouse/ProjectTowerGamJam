@@ -5,8 +5,8 @@ using UnityEngine;
 public class EHCharacterComponent : EHActorComponent
 {
     public EHCharacter OwningCharacter { get; private set; }
-    
-    
+
+
     #region override functions
 
     protected override void InitializeOwningActor()

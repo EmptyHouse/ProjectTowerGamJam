@@ -10,10 +10,13 @@ public class EHMovementComponent : EHCharacterComponent
         Walk,
         Run,
     }
+    
     [SerializeField]
     private float WalkSpeed = 3f;
     [SerializeField]
     private float RunSpeed = 7f;
+    [SerializeField]
+    private float Acceleration = 25f;
 
     private CharacterController MovementComponent;
     private Vector3 Velocity;
@@ -45,7 +48,8 @@ public class EHMovementComponent : EHCharacterComponent
 
     private void UpdateMovementSpeed()
     {
-        Velocity = new Vector3(CurrentInput.x, 0, CurrentInput.y).normalized * WalkSpeed;
+        Vector3 GoalVelocity = new Vector3(CurrentInput.x, 0, CurrentInput.y).normalized * WalkSpeed;
+        Velocity = Vector3.MoveTowards(Velocity, GoalVelocity, Acceleration * Time.deltaTime);
         MovementComponent.Move(Velocity * Time.deltaTime);
     }
 }
