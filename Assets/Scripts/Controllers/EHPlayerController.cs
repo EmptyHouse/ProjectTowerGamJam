@@ -63,6 +63,10 @@ public class EHPlayerController : EHActor
 
         EHPlayerCharacter PlayerCharacter = AssociatedPlayerState.GetAssociatedPlayerCharacter();
         PlayerCharacter.MovementComponent.SetMovementInput(AdjustedMovement);
+        if (Input.GetKeyDown(PlaceTowerButton))
+        {
+            OnPlaceTowerPressed();
+        }
     }
     
     // public void BindEventToButton(string ButtonName, UnityAction EventToBind, EButtonEvent ButtonEventType)
@@ -162,7 +166,13 @@ public class EHPlayerController : EHActor
     
     public void OnPlaceTowerPressed()
     {
-        
+        EHTowerUnit NewTowerPrefab = AssociatedPlayerState.GetCurrentlySelectedTower();
+        EHGameBoard GameBoard = EHGameInstance.Instance.GameState.GameBoard;
+        EHPlayerCharacter Playercharacter = AssociatedPlayerState.GetAssociatedPlayerCharacter();
+        if (!GameBoard.AttemptPlaceTower(NewTowerPrefab, Playercharacter.GetActorLocation(), out string ErrorMessage))
+        {
+            Debug.Log(ErrorMessage);   
+        }
     }
 
     public void OnSelectItem1()
