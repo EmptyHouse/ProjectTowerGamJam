@@ -20,6 +20,9 @@ public class EHPlayerController : EHActor
     private const KeyCode TowerSelect1Button = KeyCode.Alpha1;
     private const KeyCode TowerSelect2Button = KeyCode.Alpha2;
     private const KeyCode TowerSelect3Button = KeyCode.Alpha3;
+    
+    private readonly int AnimHorizontalInput = Animator.StringToHash("HorizontalInput");
+    private readonly int AnimVerticalInput = Animator.StringToHash("VerticalInput");
 
         [Serializable]
     private class EHButtonConfig
@@ -57,11 +60,13 @@ public class EHPlayerController : EHActor
 
     private void Update()
     {
+        EHPlayerCharacter PlayerCharacter = AssociatedPlayerState.GetAssociatedPlayerCharacter();
         Vector2 RawMovementInput = new Vector2(Input.GetAxisRaw(MoveXAxis), Input.GetAxisRaw(MoveYAxis));
+        PlayerCharacter.Anim.SetFloat(AnimHorizontalInput, RawMovementInput.x);
+        PlayerCharacter.Anim.SetFloat(AnimVerticalInput, RawMovementInput.y);
         Vector2 AdjustedMovement = GetAdjustedMovementAxis(RawMovementInput);
         Vector2 AdjustedLookDirection = GetLookDirectionFromScreenPoint(Input.mousePosition);
 
-        EHPlayerCharacter PlayerCharacter = AssociatedPlayerState.GetAssociatedPlayerCharacter();
         PlayerCharacter.MovementComponent.SetMovementInput(AdjustedMovement);
         if (Input.GetKeyDown(PlaceTowerButton))
         {

@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class EHMovementComponent : EHCharacterComponent
 {
+    
+    private readonly int AnimSpeed = Animator.StringToHash("Speed");
     public enum EMovementState
     {
         Walk,
@@ -39,6 +41,7 @@ public class EHMovementComponent : EHCharacterComponent
     public void SetMovementInput(Vector2 MovementInput)
     {
         CurrentInput = MovementInput;
+        
     }
 
     public void SetLookingInput(Vector2 DirectionalInput)
@@ -51,5 +54,6 @@ public class EHMovementComponent : EHCharacterComponent
         Vector3 GoalVelocity = new Vector3(CurrentInput.x, 0, CurrentInput.y).normalized * WalkSpeed;
         Velocity = Vector3.MoveTowards(Velocity, GoalVelocity, Acceleration * Time.deltaTime);
         MovementComponent.Move(Velocity * Time.deltaTime);
+        OwningActor.Anim.SetFloat(AnimSpeed, Velocity.magnitude);
     }
 }
