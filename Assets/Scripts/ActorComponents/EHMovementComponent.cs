@@ -10,12 +10,13 @@ public class EHMovementComponent : EHCharacterComponent
         Walk,
         Run,
     }
-
+    [SerializeField]
     private float WalkSpeed = 3f;
+    [SerializeField]
     private float RunSpeed = 7f;
 
     private CharacterController MovementComponent;
-    private Vector2 Velocity;
+    private Vector3 Velocity;
     private Vector2 CurrentInput;
 
     #region monobehaviour functions
@@ -44,7 +45,6 @@ public class EHMovementComponent : EHCharacterComponent
 
     private void UpdateMovementSpeed()
     {
-        
         Velocity = new Vector3(CurrentInput.x, 0, CurrentInput.y).normalized * WalkSpeed;
         MovementComponent.Move(Velocity * Time.deltaTime);
     }

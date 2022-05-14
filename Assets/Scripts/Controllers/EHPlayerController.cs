@@ -39,87 +39,94 @@ public class EHPlayerController : EHActor
         public float CachedValue;
     }
 
-    [SerializeField] private List<EHButtonConfig> ButtonConfigs = new List<EHButtonConfig>();
-
-    [SerializeField] private List<EHAxisConfig> AxisConfigs = new List<EHAxisConfig>();
+    // [SerializeField] private List<EHButtonConfig> ButtonConfigs = new List<EHButtonConfig>();
+    //
+    // [SerializeField] private List<EHAxisConfig> AxisConfigs = new List<EHAxisConfig>();
     [SerializeField] private EHPlayerState AssociatedPlayerState;
     private EHGameCamera GameCamera;
     
     protected override void Awake()
     {
         base.Awake();
-        GameCamera = Camera.main.GetComponent<EHGameCamera>();
     }
-    
+
+    protected void Start()
+    {
+        GameCamera = Camera.main.GetComponentInParent<EHGameCamera>();
+    }
+
     private void Update()
     {
         Vector2 RawMovementInput = new Vector2(Input.GetAxisRaw(MoveXAxis), Input.GetAxisRaw(MoveYAxis));
         Vector2 AdjustedMovement = GetAdjustedMovementAxis(RawMovementInput);
         Vector2 AdjustedLookDirection = GetLookDirectionFromScreenPoint(Input.mousePosition);
+
+        EHPlayerCharacter PlayerCharacter = AssociatedPlayerState.GetAssociatedPlayerCharacter();
+        PlayerCharacter.MovementComponent.SetMovementInput(AdjustedMovement);
     }
     
-    public void BindEventToButton(string ButtonName, UnityAction EventToBind, EButtonEvent ButtonEventType)
-    {
-        EHButtonConfig SelectedButton = null;
-        foreach (EHButtonConfig Button in ButtonConfigs)
-        {
-            if (Button.ButtonName == ButtonName)
-            {
-                SelectedButton = Button;
-                break;
-            }
-        }
-
-        if (SelectedButton == null)
-        {
-            Debug.LogWarning("Invalid Button Name: " + ButtonName);
-            return;
-        }
-        
-        switch (ButtonEventType)
-        {
-            case EButtonEvent.ButtonDown:
-                SelectedButton.ButtonDownEvent.AddListener(EventToBind);
-                return;
-            case EButtonEvent.ButtonUp:
-                SelectedButton.ButtonUpEvent.AddListener(EventToBind);
-                return;
-        }
-    }
-
-    public void BindEventToAxis(string AxisName, UnityAction<float> EventToBind)
-    {
-        EHAxisConfig SelectedAxis = null;
-        foreach (EHAxisConfig Axis in AxisConfigs)
-        {
-            if (Axis.AxisName == AxisName)
-            {
-                SelectedAxis = Axis;
-                break;
-            }
-        }
-        SelectedAxis.AxisEvent.AddListener(EventToBind);
-    }
-
-    private void UpdateButtonEvents()
-    {
-        foreach (EHButtonConfig ButtonConfig in ButtonConfigs)
-        {
-            bool CurrentButtonValue = Input.GetKey(ButtonConfig.ButtonKey);
-            if (CurrentButtonValue != ButtonConfig.CachedValue)
-            {
-                ButtonConfig.CachedValue = CurrentButtonValue;
-                if (CurrentButtonValue)
-                {
-                    ButtonConfig.ButtonDownEvent?.Invoke();
-                }
-                else
-                {
-                    ButtonConfig.ButtonUpEvent?.Invoke();
-                }
-            }
-        }
-    }
+    // public void BindEventToButton(string ButtonName, UnityAction EventToBind, EButtonEvent ButtonEventType)
+    // {
+    //     EHButtonConfig SelectedButton = null;
+    //     foreach (EHButtonConfig Button in ButtonConfigs)
+    //     {
+    //         if (Button.ButtonName == ButtonName)
+    //         {
+    //             SelectedButton = Button;
+    //             break;
+    //         }
+    //     }
+    //
+    //     if (SelectedButton == null)
+    //     {
+    //         Debug.LogWarning("Invalid Button Name: " + ButtonName);
+    //         return;
+    //     }
+    //     
+    //     switch (ButtonEventType)
+    //     {
+    //         case EButtonEvent.ButtonDown:
+    //             SelectedButton.ButtonDownEvent.AddListener(EventToBind);
+    //             return;
+    //         case EButtonEvent.ButtonUp:
+    //             SelectedButton.ButtonUpEvent.AddListener(EventToBind);
+    //             return;
+    //     }
+    // }
+    //
+    // public void BindEventToAxis(string AxisName, UnityAction<float> EventToBind)
+    // {
+    //     EHAxisConfig SelectedAxis = null;
+    //     foreach (EHAxisConfig Axis in AxisConfigs)
+    //     {
+    //         if (Axis.AxisName == AxisName)
+    //         {
+    //             SelectedAxis = Axis;
+    //             break;
+    //         }
+    //     }
+    //     SelectedAxis.AxisEvent.AddListener(EventToBind);
+    // }
+    //
+    // private void UpdateButtonEvents()
+    // {
+    //     foreach (EHButtonConfig ButtonConfig in ButtonConfigs)
+    //     {
+    //         bool CurrentButtonValue = Input.GetKey(ButtonConfig.ButtonKey);
+    //         if (CurrentButtonValue != ButtonConfig.CachedValue)
+    //         {
+    //             ButtonConfig.CachedValue = CurrentButtonValue;
+    //             if (CurrentButtonValue)
+    //             {
+    //                 ButtonConfig.ButtonDownEvent?.Invoke();
+    //             }
+    //             else
+    //             {
+    //                 ButtonConfig.ButtonUpEvent?.Invoke();
+    //             }
+    //         }
+    //     }
+    // }
 
     private Vector2 GetAdjustedMovementAxis(Vector2 InputDirection)
     {
