@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EHPlayerState : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region player events
+    [SerializeField]
+    private EHPlayerCharacter PossessedCharacter;
+    #endregion player events
+    
+    public int Credits { get; private set; }
+
+    public void AdjustCredits(int CreditAdjustement)
     {
-        
+        Credits += CreditAdjustement;
+        if (Credits < 0)
+        {
+            Credits = 0;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public EHPlayerCharacter GetAssociatedPlayerCharacter()
     {
-        
+        return PossessedCharacter;
     }
 }

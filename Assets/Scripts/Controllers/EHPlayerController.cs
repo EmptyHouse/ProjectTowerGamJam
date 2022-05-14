@@ -12,46 +12,56 @@ public enum EButtonEvent
 
 public class EHPlayerController : EHActor
 {
-    
-    
-    [Serializable]
-    private class FButtonConfig
+    private const string MoveXAxis = "MoveX";
+    private const string MoveYAxis = "MoveY";
+
+    private const KeyCode ShootButton = KeyCode.Mouse0;
+    private const KeyCode PlaceTowerButton = KeyCode.Mouse1;
+    private const KeyCode TowerSelect1Button = KeyCode.Alpha1;
+    private const KeyCode TowerSelect2Button = KeyCode.Alpha2;
+    private const KeyCode TowerSelect3Button = KeyCode.Alpha3;
+
+        [Serializable]
+    private class EHButtonConfig
     {
         public string ButtonName;
         public KeyCode ButtonKey;
-        public UnityAction ButtonUpEvent;
-        public UnityAction ButtonDownEvent;
+        public UnityEvent ButtonUpEvent;
+        public UnityEvent ButtonDownEvent;
         public bool CachedValue;
     }
     
     [Serializable]
-    private class FAxisConfig
+    private class EHAxisConfig
     {
         public string AxisName;
-        public UnityAction<float> AxisEvent;
+        public UnityEvent<float> AxisEvent;
         public float CachedValue;
     }
 
-    [SerializeField] private List<FButtonConfig> ButtonConfigs = new List<FButtonConfig>();
+    [SerializeField] private List<EHButtonConfig> ButtonConfigs = new List<EHButtonConfig>();
 
-    [SerializeField] private List<FAxisConfig> AxisConfigs = new List<FAxisConfig>();
+    [SerializeField] private List<EHAxisConfig> AxisConfigs = new List<EHAxisConfig>();
+    [SerializeField] private EHPlayerState AssociatedPlayerState;
+    private EHGameCamera GameCamera;
     
-    
-    
-
     protected override void Awake()
     {
         base.Awake();
-        
+        GameCamera = Camera.main.GetComponent<EHGameCamera>();
     }
+    
     private void Update()
     {
+        Vector2 RawMovementInput = new Vector2(Input.GetAxisRaw(MoveXAxis), Input.GetAxisRaw(MoveYAxis));
+        Vector2 AdjustedMovement = GetAdjustedMovementAxis(RawMovementInput);
+        Vector2 AdjustedLookDirection = GetLookDirectionFromScreenPoint(Input.mousePosition);
     }
     
     public void BindEventToButton(string ButtonName, UnityAction EventToBind, EButtonEvent ButtonEventType)
     {
-        FButtonConfig SelectedButton = null;
-        foreach (FButtonConfig Button in ButtonConfigs)
+        EHButtonConfig SelectedButton = null;
+        foreach (EHButtonConfig Button in ButtonConfigs)
         {
             if (Button.ButtonName == ButtonName)
             {
@@ -69,18 +79,18 @@ public class EHPlayerController : EHActor
         switch (ButtonEventType)
         {
             case EButtonEvent.ButtonDown:
-                SelectedButton.ButtonDownEvent += EventToBind;
+                SelectedButton.ButtonDownEvent.AddListener(EventToBind);
                 return;
             case EButtonEvent.ButtonUp:
-                SelectedButton.ButtonUpEvent += EventToBind;
+                SelectedButton.ButtonUpEvent.AddListener(EventToBind);
                 return;
         }
     }
 
     public void BindEventToAxis(string AxisName, UnityAction<float> EventToBind)
     {
-        FAxisConfig SelectedAxis = null;
-        foreach (FAxisConfig Axis in AxisConfigs)
+        EHAxisConfig SelectedAxis = null;
+        foreach (EHAxisConfig Axis in AxisConfigs)
         {
             if (Axis.AxisName == AxisName)
             {
@@ -88,15 +98,83 @@ public class EHPlayerController : EHActor
                 break;
             }
         }
+        SelectedAxis.AxisEvent.AddListener(EventToBind);
+    }
 
-        SelectedAxis.AxisEvent += EventToBind;
+    private void UpdateButtonEvents()
+    {
+        foreach (EHButtonConfig ButtonConfig in ButtonConfigs)
+        {
+            bool CurrentButtonValue = Input.GetKey(ButtonConfig.ButtonKey);
+            if (CurrentButtonValue != ButtonConfig.CachedValue)
+            {
+                ButtonConfig.CachedValue = CurrentButtonValue;
+                if (CurrentButtonValue)
+                {
+                    ButtonConfig.ButtonDownEvent?.Invoke();
+                }
+                else
+                {
+                    ButtonConfig.ButtonUpEvent?.Invoke();
+                }
+            }
+        }
+    }
+
+    private Vector2 GetAdjustedMovementAxis(Vector2 InputDirection)
+    {
+        Vector3 AdjustedInput =
+            GameCamera.transform.TransformDirection(new Vector3(InputDirection.x, 0, InputDirection.y));
+        Vector2 MovementAxis = new Vector2(AdjustedInput.x, AdjustedInput.z);
+        return MovementAxis;
+    }
+    
+    private Vector2 GetLookDirectionFromScreenPoint(Vector3 MousePosition)
+    {
+        EHPlayerCharacter PlayerCharacter = AssociatedPlayerState.GetAssociatedPlayerCharacter();
+        if (PlayerCharacter == null)
+        {
+            return Vector2.zero;
+        }
+        
+        Ray CameraRay = GameCamera.CameraComponent.ScreenPointToRay(MousePosition);
+        Vector3 CameraHitPosition = CameraRay.origin + CameraRay.direction * (CameraRay.origin.y / -CameraRay.direction.y);
+        Vector3 DirectionFromPlayer = CameraHitPosition - PlayerCharacter.GetActorLocation();
+        return new Vector2(DirectionFromPlayer.x, DirectionFromPlayer.z);
+    }
+
+
+    private void UpdateMovementDirection(Vector2 MovementInput)
+    {
+        
+    }
+    
+    public void UpdateLookDirection(Vector2 LookDirection)
+    {
+        
+    }
+    
+    public void OnFireButtonPressed()
+    {
+        
+    }
+    
+    public void OnPlaceTowerPressed()
+    {
         
     }
 
-    /// <summary>
-    /// Updates the mouse axis based on a project vector of the player's character position
-    /// </summary>
-    private void UpdateMouseAxis()
+    public void OnSelectItem1()
+    {
+        
+    }
+
+    public void OnSelectItem2()
+    {
+        
+    }
+
+    public void OnSelectItem3()
     {
         
     }
