@@ -25,7 +25,7 @@ public class EHGameCamera : EHActor
         this.transform.SetParent(null);
     }
 
-    protected void Update()
+    protected void LateUpdate()
     {
         UpdateCameraPosition();
     }
