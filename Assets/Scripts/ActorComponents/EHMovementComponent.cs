@@ -21,7 +21,7 @@ public class EHMovementComponent : EHCharacterComponent
     private float Acceleration = 25f;
 
     private CharacterController MovementComponent;
-    private Vector3 Velocity;
+    public Vector3 Velocity { get; private set; }
     private Vector2 CurrentInput;
 
     #region monobehaviour functions
