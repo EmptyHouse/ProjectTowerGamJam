@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d280c3d5e0f97349b44bf1eb7d39db5
+guid: a5fc80f17210c4746af2910237a37395
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: base health bar_0
+      name: MachineGun
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 96
-        height: 16
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6ae9f1621152634ebde6c6f15ab7381
-      internalID: -1444295108
+      spriteID: 3fb0f0b7f4fc4514f9260c28d3e5fc50
+      internalID: 868329286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base health bar_1
+      name: MissileIcon
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 0
-        width: 96
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbebbd8f49b53ae49bb0849722468366
-      internalID: 2007242799
+      spriteID: c1db1482430dde646b1e7e5e220e56a1
+      internalID: 999499860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatisIcon
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cddf7c79c2ad7547b09f5f8b81cc26a
+      internalID: -828411829
       vertices: []
       indices: 
       edges: []
@@ -149,15 +170,16 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      base health bar_0: -1444295108
-      base health bar_1: 2007242799
+      MissileIcon: 999499860
+      MachineGun: 868329286
+      StatisIcon: -828411829
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
