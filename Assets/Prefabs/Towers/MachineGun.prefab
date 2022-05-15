@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1943598341011140255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6322438022011549726}
+  m_Layer: 0
+  m_Name: LaunchPosition1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6322438022011549726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943598341011140255}
+  m_LocalRotation: {x: -0, y: -0.7072302, z: -0.7069834, w: 0}
+  m_LocalPosition: {x: -0.00725, y: 0.10796, z: 0.00039}
+  m_LocalScale: {x: 0.014285711, y: 0.0142857125, z: 0.020408161}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 852858526372196459}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5377900181001357759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3947604478263892114}
+  m_Layer: 0
+  m_Name: LaunchPosition1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3947604478263892114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377900181001357759}
+  m_LocalRotation: {x: -0, y: -0.7072302, z: -0.7069834, w: 0}
+  m_LocalPosition: {x: 0.00785, y: 0.10796, z: 0.00039}
+  m_LocalScale: {x: 0.014285711, y: 0.0142857125, z: 0.020408161}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 852858526372196459}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5536241943137733540
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,8 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc02c2a9dc02b0d4cbd6d8883efb5572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileToFire: {fileID: 1124098897086545855, guid: 97d687eab7fb2d448afe1df2c46f1feb, type: 3}
   RotationSpeed: 100
   RotationTransform: {fileID: 852858526372196459}
+  LaunchPoints:
+  - {fileID: 6322438022011549726}
+  - {fileID: 3947604478263892114}
+  DelayFire: 0.3
 --- !u!95 &5536241943137733537
 Animator:
   serializedVersion: 4
