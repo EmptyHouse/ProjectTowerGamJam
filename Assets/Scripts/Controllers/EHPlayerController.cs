@@ -77,7 +77,7 @@ public class EHPlayerController : EHActor
         if (Input.GetKeyDown(TowerSelect2Button)) OnSelectItem2();
         if (Input.GetKeyDown(TowerSelect3Button)) OnSelectItem3();
         EHGameBoard GameBoard = EHGameInstance.Instance.GameState.GameBoard;
-        GameBoard.Update
+        GameBoard.SetValidTile(PlayerCharacter.GetActorLocation());
     }
     
     // public void BindEventToButton(string ButtonName, UnityAction EventToBind, EButtonEvent ButtonEventType)

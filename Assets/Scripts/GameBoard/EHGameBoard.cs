@@ -22,8 +22,8 @@ public class EHGameBoard : EHActor
     [SerializeField]
     private int BoardHeight = 15;
     private List<EHBoardTileData> BoardTileList = new List<EHBoardTileData>();
-    [SerializeField]
-    
+    [SerializeField] 
+    private EHValidTile ValidTile;
     
     #region monobehaviour methods
 
@@ -37,7 +37,7 @@ public class EHGameBoard : EHActor
             for (int y = 0; y < BoardHeight; ++y)
             {
                 EHBoardTileData BoardTile = new EHBoardTileData();
-                BoardTile.BoardPosition = new Vector2Int(x, y);
+                BoardTile.BoardPosition = new Vector2Int(y, x);
                 BoardTileList.Add(BoardTile);
             }
         }
@@ -52,7 +52,7 @@ public class EHGameBoard : EHActor
 
     public static Vector3 BoardTileToWorldPosition(Vector2Int TilePosition)
     {
-        return new Vector3(TilePosition.x * BoardTileToWorldAdjustment, 0, TilePosition.y * BoardTileToWorldAdjustment);
+        return new Vector3(TilePosition.y * BoardTileToWorldAdjustment, 0, TilePosition.x * BoardTileToWorldAdjustment);
     }
 
     public static Vector2Int WorldToBoardTilePosition(Vector3 WorldPosition)
@@ -141,6 +141,15 @@ public class EHGameBoard : EHActor
     private void DestroyTowerAtTilePosition(EHBoardTileData BoardTile)
     {
         Destroy(BoardTile.OccupyingTower.gameObject);
+    }
+
+    public void SetValidTile(Vector3 WorldPosition)
+    {
+        if (!GetTileAtPosition(WorldToBoardTilePosition(WorldPosition), out EHBoardTileData TileData))
+        {
+            return;
+        }
+        ValidTile.SetValidTile(TileData.IsOccupied ? ETileState.Invalid : ETileState.Valid, WorldPosition);
     }
     #endregion placing towers
 }

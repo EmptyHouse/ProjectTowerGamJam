@@ -1,18 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EHMinion : MonoBehaviour
+public class EHMinion : EHCharacter
 {
-    // Start is called before the first frame update
-    void Start()
+    protected void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Vector3 ForwardVec = transform.forward;
+        MovementComponent.SetMovementInput(new Vector2(ForwardVec.z, -ForwardVec.x));
     }
 }

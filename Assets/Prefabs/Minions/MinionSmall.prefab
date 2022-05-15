@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -789614336, guid: 03435ab9da661ff48ad7da9601d173af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 5138170122825190496}
   - component: {fileID: 5138170122825190497}
   - component: {fileID: 5138170122825190498}
+  - component: {fileID: 6008530954792950615}
+  - component: {fileID: 2086133694546166220}
   m_Layer: 0
   m_Name: MinionSmall
   m_TagString: Untagged
@@ -150,3 +152,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8b5a92d037dc040bc9a08cbe93a98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!143 &6008530954792950615
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138170122825190495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2.5
+  m_Radius: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!114 &2086133694546166220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138170122825190495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb19ee994d2f68d4b85b6e85df74448f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkSpeed: 4
+  RunSpeed: 7
+  Acceleration: 25

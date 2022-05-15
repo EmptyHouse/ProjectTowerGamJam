@@ -10,10 +10,8 @@ public enum ETileState
 
 public class EHValidTile : MonoBehaviour
 {
-    [SerializeField]
-    private Color ValidColor = new Color(1, 0, 0, .7f);
-    [SerializeField]
-    private Color InvalidColor = new Color(0, 1, 1, .7f);
+    private Color ValidColor = new Color(0, 1, 1, .7f);
+    private Color InvalidColor = new Color(1, 0, 0, .7f);
     [SerializeField]
     private Color NoneColor = new Color(0, 0, 0, 0);
 
@@ -45,5 +43,7 @@ public class EHValidTile : MonoBehaviour
                 TileSprite.color = InvalidColor;
                 break;
         }
+
+        transform.position = EHGameBoard.BoardTileToWorldPosition(TilePosition);
     }
 }

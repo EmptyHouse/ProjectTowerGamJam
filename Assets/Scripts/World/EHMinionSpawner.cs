@@ -11,6 +11,7 @@ public struct FSpawnInfo
 public class EHMinionSpawner : MonoBehaviour
 {
     // NOTE: These would be moved to a data table in the future.
+    [SerializeField]
     private List<FSpawnInfo> MinionSpawnSequenceRound1;
     private List<FSpawnInfo> MinionSpawnSequenceRound2;
     private List<FSpawnInfo> MinionSpawnSequenceRound3;
@@ -25,14 +26,14 @@ public class EHMinionSpawner : MonoBehaviour
 
     private void Update()
     {
-        // if (RemainingTimeTillNextSpawn <= 0)
-        // {
-        //     if (!SpawnMinion())
-        //     {
-        //         this.enabled = false;
-        //     }
-        // }
-        // RemainingTimeTillNextSpawn -= Time.deltaTime;
+        if (RemainingTimeTillNextSpawn <= 0)
+        {
+            if (!SpawnMinion())
+            {
+                this.enabled = false;
+            }
+        }
+        RemainingTimeTillNextSpawn -= Time.deltaTime;
         
     }
 

@@ -196,7 +196,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3704090011d87164f957fdd1794f00c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -404,7 +404,7 @@ Transform:
   m_Children:
   - {fileID: 1470010459}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -631,6 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoardWidth: 15
   BoardHeight: 15
+  ValidTile: {fileID: 1190949037}
 --- !u!4 &827716939
 Transform:
   m_ObjectHideFlags: 0
@@ -642,7 +643,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1190949038}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -799,14 +801,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051134623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69.210434, y: 5.5128083, z: 9.607476}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 75, y: 0, z: 149.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1051134625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,6 +821,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333fd7df11116234da8b495d75b26ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinionSpawnSequenceRound1:
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
+  - TimeTillNextSpawn: 1
+    MinionToSpawn: {fileID: 5138170122825190498, guid: 1f12cbebb75fcb44e91fcd0bd77257ca, type: 3}
 --- !u!1 &1190949036
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,8 +891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092d02cb0ba76274ab57b1913ea5bcbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ValidColor: {r: 1, g: 0, b: 0, a: 0.7}
-  InvalidColor: {r: 0, g: 1, b: 1, a: 0.7}
   NoneColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1190949038
 Transform:
@@ -858,14 +899,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190949036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 955560021}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 827716939}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1470010459 stripped
 Transform:
@@ -904,7 +945,7 @@ Transform:
   m_Children:
   - {fileID: 10642653}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1511690292
 Animator:
@@ -1138,7 +1179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1176837558734951848, guid: 580a845f7a7c5724f8b50ffb508d635f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1176837558734951848, guid: 580a845f7a7c5724f8b50ffb508d635f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1276,6 +1317,10 @@ PrefabInstance:
     - target: {fileID: 1686598312, guid: 2af950ce259f9ef42ae4b3fe43730433, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686598313, guid: 2af950ce259f9ef42ae4b3fe43730433, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6354905659436091341, guid: 2af950ce259f9ef42ae4b3fe43730433, type: 3}
       propertyPath: m_RootOrder
