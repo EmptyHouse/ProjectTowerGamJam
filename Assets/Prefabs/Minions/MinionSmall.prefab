@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5138170121629237963}
   - component: {fileID: 5138170121629237964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MinionSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5138170122825190498}
   - component: {fileID: 6008530954792950615}
   - component: {fileID: 2086133694546166220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MinionSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

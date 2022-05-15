@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc02c2a9dc02b0d4cbd6d8883efb5572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotationSpeed: 100
+  RotationTransform: {fileID: 8036353873462752399}
 --- !u!95 &123706357771176794
 Animator:
   serializedVersion: 4
@@ -188,5 +190,10 @@ PrefabInstance:
 --- !u!4 &449734596599659547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cda3680f805c7e640a7578b08f4ce2cb, type: 3}
+  m_PrefabInstance: {fileID: 123706357768248304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8036353873462752399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7940306847455457151, guid: cda3680f805c7e640a7578b08f4ce2cb, type: 3}
   m_PrefabInstance: {fileID: 123706357768248304}
   m_PrefabAsset: {fileID: 0}

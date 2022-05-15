@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc02c2a9dc02b0d4cbd6d8883efb5572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotationSpeed: 100
+  RotationTransform: {fileID: 852858526372196459}
 --- !u!95 &5536241943137733537
 Animator:
   serializedVersion: 4
@@ -183,8 +185,37 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 7940306847455457151, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7072302
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940306847455457151, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7069834
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940306847455457151, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940306847455457151, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940306847455457151, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940306847455457151, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+--- !u!4 &852858526372196459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7940306847455457151, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+  m_PrefabInstance: {fileID: 7342087084913254164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7092866157287422207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
