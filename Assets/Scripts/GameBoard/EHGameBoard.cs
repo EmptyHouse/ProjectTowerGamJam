@@ -22,6 +22,8 @@ public class EHGameBoard : EHActor
     [SerializeField]
     private int BoardHeight = 15;
     private List<EHBoardTileData> BoardTileList = new List<EHBoardTileData>();
+    [SerializeField]
+    
     
     #region monobehaviour methods
 
