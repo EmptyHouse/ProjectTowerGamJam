@@ -72,6 +72,10 @@ public class EHPlayerController : EHActor
         {
             OnPlaceTowerPressed();
         }
+
+        if (Input.GetKeyDown(TowerSelect1Button)) OnSelectItem1();
+        if (Input.GetKeyDown(TowerSelect2Button)) OnSelectItem2();
+        if (Input.GetKeyDown(TowerSelect3Button)) OnSelectItem3();
     }
     
     // public void BindEventToButton(string ButtonName, UnityAction EventToBind, EButtonEvent ButtonEventType)
@@ -182,16 +186,16 @@ public class EHPlayerController : EHActor
 
     public void OnSelectItem1()
     {
-        
+        AssociatedPlayerState.SetSelectedTowerIndex(0);
     }
 
     public void OnSelectItem2()
     {
-        
+        AssociatedPlayerState.SetSelectedTowerIndex(1);
     }
 
     public void OnSelectItem3()
     {
-        
+        AssociatedPlayerState.SetSelectedTowerIndex(2);
     }
 }

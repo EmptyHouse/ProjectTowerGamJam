@@ -963,6 +963,18 @@ PrefabInstance:
       propertyPath: CameraSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1686598312, guid: 2af950ce259f9ef42ae4b3fe43730433, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686598312, guid: 2af950ce259f9ef42ae4b3fe43730433, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686598312, guid: 2af950ce259f9ef42ae4b3fe43730433, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 6354905659436091341, guid: 2af950ce259f9ef42ae4b3fe43730433, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1122,7 +1134,7 @@ PrefabInstance:
       objectReference: {fileID: 6354905660924692876}
     - target: {fileID: 7287841290533048421, guid: b81bffea7154586418859adcd140dd4c, type: 3}
       propertyPath: AvailableTowerUnits.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7287841290533048421, guid: b81bffea7154586418859adcd140dd4c, type: 3}
       propertyPath: AvailableTowerUnits.Array.data[0]
@@ -1132,6 +1144,10 @@ PrefabInstance:
       propertyPath: AvailableTowerUnits.Array.data[1]
       value: 
       objectReference: {fileID: 123706357771176796, guid: c564d8983fdb5154f9501345f3461421, type: 3}
+    - target: {fileID: 7287841290533048421, guid: b81bffea7154586418859adcd140dd4c, type: 3}
+      propertyPath: AvailableTowerUnits.Array.data[2]
+      value: 
+      objectReference: {fileID: 699764912224281620, guid: 11f1c012d8dfe41469bcca03362a1c49, type: 3}
     - target: {fileID: 7287841290533048422, guid: b81bffea7154586418859adcd140dd4c, type: 3}
       propertyPath: m_RootOrder
       value: 2
