@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EHTowerTable : MonoBehaviour
+public class EHTowerDataEntry : EHDataTableRow
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Tooltip("The cost of our tower at various levels")]
+    public List<int> TowerCosts;
+    [Tooltip("The return value of our tower at various levels")]
+    public List<int> ReturnValue;
+    [Tooltip("The Prefab reference of the tower that will be constructed at various levels")]
+    public List<EHTowerUnit> TowerLevels;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu(fileName = "TowerDataTable", menuName = "ScriptableObjects/TowerTable", order = 1)]
+public class EHTowerTable : EHDataTable<EHTowerDataEntry>
+{
+    
 }
