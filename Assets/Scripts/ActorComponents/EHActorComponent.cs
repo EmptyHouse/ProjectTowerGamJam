@@ -20,6 +20,28 @@ public class EHActorComponent : MonoBehaviour
     }
     
     #region Owning Actor Functions
-    
-    #endregion 
+
+    public void SetActorLocation(Vector3 Position)
+    {
+        OwningActor.SetActorLocation(Position);
+    }
+
+    public void SetActorRotation(Vector3 Rotation)
+    {
+        OwningActor.SetActorRotation(Quaternion.Euler(Rotation));
+    }
+
+    public void SetActorRotation(Quaternion Rotation)
+    {
+        OwningActor.SetActorRotation(Rotation);
+    }
+
+    public void SetActorScale(Vector3 Scale)
+    {
+        OwningActor.SetActorScale(Scale);
+    }
+
+    public Quaternion GetActorRotation() => OwningActor.GetActorRotation();
+
+    #endregion
 }

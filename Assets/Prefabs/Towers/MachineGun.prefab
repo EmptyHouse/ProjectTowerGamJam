@@ -244,6 +244,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4795160085687874365, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f04f0ba7d83e16b4ca27d3a960f04c89, type: 2}
+    - target: {fileID: -2859109400176981367, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f04f0ba7d83e16b4ca27d3a960f04c89, type: 2}
     - target: {fileID: 919132149155446097, guid: 3a04e8a922d35c048bd3f504a46dae6c, type: 3}
       propertyPath: m_Name
       value: machine_gun

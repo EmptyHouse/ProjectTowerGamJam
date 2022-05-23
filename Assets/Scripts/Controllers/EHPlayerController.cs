@@ -68,6 +68,7 @@ public class EHPlayerController : EHActor
         Vector2 AdjustedLookDirection = GetLookDirectionFromScreenPoint(Input.mousePosition);
 
         PlayerCharacter.MovementComponent.SetMovementInput(AdjustedMovement);
+        PlayerCharacter.MovementComponent.SetLookingInput(AdjustedMovement);
         if (Input.GetKeyDown(PlaceTowerButton))
         {
             OnPlaceTowerPressed();

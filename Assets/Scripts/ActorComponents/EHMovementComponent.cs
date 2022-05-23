@@ -20,6 +20,9 @@ public class EHMovementComponent : EHCharacterComponent
     [SerializeField]
     private float Acceleration = 25f;
 
+    [SerializeField] 
+    private float RotationRate = 30f;
+
     private CharacterController MovementComponent;
     public Vector3 Velocity { get; private set; }
     private Vector2 CurrentInput;
@@ -41,12 +44,14 @@ public class EHMovementComponent : EHCharacterComponent
     public void SetMovementInput(Vector2 MovementInput)
     {
         CurrentInput = MovementInput;
-        
     }
 
     public void SetLookingInput(Vector2 DirectionalInput)
     {
-        float Rotation = Mathf.Rad2Deg * Mathf.Atan2(DirectionalInput.x, DirectionalInput.y);
+        if (DirectionalInput == Vector2.zero) return;
+        
+        float GoalRotation = Mathf.Rad2Deg * Mathf.Atan2(DirectionalInput.x, DirectionalInput.y);
+        SetActorRotation(Quaternion.Slerp(GetActorRotation(), Quaternion.Euler(0, GoalRotation, 0), Time.deltaTime * RotationRate));
     }
 
     private void UpdateMovementSpeed()
@@ -56,4 +61,6 @@ public class EHMovementComponent : EHCharacterComponent
         MovementComponent.Move(Velocity * Time.deltaTime);
         OwningActor.Anim.SetFloat(AnimSpeed, Velocity.magnitude);
     }
+    
+    
 }

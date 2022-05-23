@@ -79,6 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc02c2a9dc02b0d4cbd6d8883efb5572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileToFire: {fileID: 0}
+  RotationSpeed: 100
+  RotationTransform: {fileID: 0}
+  LaunchPoints: []
+  DelayFire: 0.1
 --- !u!95 &699764912224281618
 Animator:
   serializedVersion: 4
@@ -175,10 +180,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: d5252ac4f1dc4554b9bf474ba0ac1864, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f04f0ba7d83e16b4ca27d3a960f04c89, type: 2}
     - target: {fileID: 919132149155446097, guid: d5252ac4f1dc4554b9bf474ba0ac1864, type: 3}
       propertyPath: m_Name
       value: tesla coil
       objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: d5252ac4f1dc4554b9bf474ba0ac1864, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f04f0ba7d83e16b4ca27d3a960f04c89, type: 2}
+    - target: {fileID: 8521902485874960664, guid: d5252ac4f1dc4554b9bf474ba0ac1864, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f04f0ba7d83e16b4ca27d3a960f04c89, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5252ac4f1dc4554b9bf474ba0ac1864, type: 3}
 --- !u!4 &9153724649947762286 stripped
