@@ -5,6 +5,7 @@ using UnityEngine;
 public class EHGameState : MonoBehaviour
 {
     public EHGameBoard GameBoard { get; private set; }
+    public List<EHMinion> AllSpawnedMinions { get; private set; }
 
     public void SetGameBoard(EHGameBoard GameBoard)
     {

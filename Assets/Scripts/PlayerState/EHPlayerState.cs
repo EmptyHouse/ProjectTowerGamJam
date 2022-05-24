@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,16 @@ public class EHPlayerState : MonoBehaviour
     private int CurrentSelectedTowerIndex;
     [SerializeField]
     private List<EHTowerUnit> AvailableTowerUnits = new List<EHTowerUnit>();
+
+    private EHUnitBuildPad CurrentlyActiveBuildPad;
     #endregion player events
     
     public int Credits { get; private set; }
+
+    protected void Awake()
+    {
+        PossessedCharacter.PossessPlayerCharacter(this);
+    }
 
     public void AdjustCredits(int CreditAdjustment)
     {
@@ -45,6 +53,13 @@ public class EHPlayerState : MonoBehaviour
     }
 
     public int GetSelectedTowerIndex() => CurrentSelectedTowerIndex;
-    
+
+    public void SetBuildPadActive(EHUnitBuildPad BuildPad)
+    {
+        CurrentlyActiveBuildPad = BuildPad;
+    }
+
+    public EHUnitBuildPad GetActiveBuildPad() => CurrentlyActiveBuildPad;
+
     #endregion tower functionality
 }

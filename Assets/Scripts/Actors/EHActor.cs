@@ -51,4 +51,22 @@ public class EHActor : MonoBehaviour
         transform.localScale = Scale;
     }
     #endregion setter functions
+    
+    #region actor functionality
+
+    public T CreateActor<T>(T ActorToSpawn, Vector3 Position, Quaternion Rotation) where T : EHActor
+    {
+        if (ActorToSpawn == null)
+        {
+            Debug.LogWarning("Attempting to create an null actor");
+            return null;
+        }
+        return Instantiate(ActorToSpawn, Position, Rotation);
+    }
+
+    public void DestroyActor(EHActor ActorToDestroy)
+    {
+        Destroy(ActorToDestroy.gameObject);
+    }
+    #endregion actor functionality
 }

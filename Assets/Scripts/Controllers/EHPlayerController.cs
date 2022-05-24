@@ -77,8 +77,6 @@ public class EHPlayerController : EHActor
         if (Input.GetKeyDown(TowerSelect1Button)) OnSelectItem1();
         if (Input.GetKeyDown(TowerSelect2Button)) OnSelectItem2();
         if (Input.GetKeyDown(TowerSelect3Button)) OnSelectItem3();
-        EHGameBoard GameBoard = EHGameInstance.Instance.GameState.GameBoard;
-        GameBoard.SetValidTile(PlayerCharacter.GetActorLocation());
     }
     
     // public void BindEventToButton(string ButtonName, UnityAction EventToBind, EButtonEvent ButtonEventType)
@@ -179,11 +177,10 @@ public class EHPlayerController : EHActor
     public void OnPlaceTowerPressed()
     {
         EHTowerUnit NewTowerPrefab = AssociatedPlayerState.GetCurrentlySelectedTower();
-        EHGameBoard GameBoard = EHGameInstance.Instance.GameState.GameBoard;
-        EHPlayerCharacter Playercharacter = AssociatedPlayerState.GetAssociatedPlayerCharacter();
-        if (!GameBoard.AttemptPlaceTower(NewTowerPrefab, Playercharacter.GetActorLocation(), out string ErrorMessage))
+        EHUnitBuildPad BuildPad = AssociatedPlayerState.GetActiveBuildPad();
+        if (BuildPad != null)
         {
-            Debug.Log(ErrorMessage);   
+            BuildPad.BuildTowerUnit(NewTowerPrefab);
         }
     }
 
@@ -201,4 +198,7 @@ public class EHPlayerController : EHActor
     {
         AssociatedPlayerState.SetSelectedTowerIndex(2);
     }
+
+    public EHPlayerState GetOwningPlayerState() => AssociatedPlayerState;
+
 }

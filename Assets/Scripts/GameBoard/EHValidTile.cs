@@ -8,6 +8,9 @@ public enum ETileState
     Invalid,
 }
 
+/// <summary>
+/// OBSOLETE: Currently not being used, but may want the logic for something later on in development
+/// </summary>
 public class EHValidTile : MonoBehaviour
 {
     private Color ValidColor = new Color(0, 1, 1, .7f);
@@ -26,24 +29,24 @@ public class EHValidTile : MonoBehaviour
 
     public void SetValidTile(ETileState TileState, Vector3 WorldPosition)
     {
-        Vector2Int TilePosition = EHGameBoard.WorldToBoardTilePosition(WorldPosition);
-        if (CurrentTileState == TileState && TilePosition == CurrentTileLocation)
-        {
-            return;
-        }
-        switch (TileState)
-        {
-            case ETileState.None:
-                TileSprite.color = NoneColor;
-                break;
-            case ETileState.Valid:
-                TileSprite.color = ValidColor;
-                break;
-            case ETileState.Invalid:
-                TileSprite.color = InvalidColor;
-                break;
-        }
+        // Vector2Int TilePosition = EHGameBoard.WorldToBoardTilePosition(WorldPosition);
+        // if (CurrentTileState == TileState && TilePosition == CurrentTileLocation)
+        // {
+        //     return;
+        // }
+        // switch (TileState)
+        // {
+        //     case ETileState.None:
+        //         TileSprite.color = NoneColor;
+        //         break;
+        //     case ETileState.Valid:
+        //         TileSprite.color = ValidColor;
+        //         break;
+        //     case ETileState.Invalid:
+        //         TileSprite.color = InvalidColor;
+        //         break;
+        // }
 
-        transform.position = EHGameBoard.BoardTileToWorldPosition(TilePosition);
+        // transform.position = EHGameBoard.BoardTileToWorldPosition(TilePosition);
     }
 }
